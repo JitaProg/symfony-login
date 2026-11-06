@@ -24,7 +24,18 @@
             <a href="{{ path('app_about') }}">Acerca de</a>
 
             {% if app.user %}
+                <a href="{{ path('app_dashboard') }}">Dashboard</a>
                 <span>Hola, {{ app.user.userIdentifier }}</span>
+
+                <form method="post" action="{{ path('app_logout') }}" class="logout-form">
+                    <input
+                        type="hidden"
+                        data-controller="csrf-protection"
+                        name="_csrf_token"
+                        value="{{ csrf_token('logout') }}"
+                    >
+                    <button type="submit">Cerrar sesión</button>
+                </form>
             {% else %}
                 <a href="{{ path('app_login') }}">Iniciar sesión</a>
             {% endif %}

@@ -20,11 +20,17 @@ security:
                 login_path: app_login
                 check_path: app_login
                 enable_csrf: true
-                default_target_path: app_home
+                default_target_path: app_dashboard
                 always_use_default_target_path: true
                 failure_path: app_login
 
-    access_control: []
+            logout:
+                path: app_logout
+                target: app_home
+                enable_csrf: true
+
+    access_control:
+        - { path: ^/dashboard, roles: ROLE_USER }
 
 when@test:
     security:

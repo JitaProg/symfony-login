@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Bienvenido al <span class="accent">Dashboard</span></h1>
+
+        <p>Bienvenido, <strong>{{ user.userIdentifier }}</strong>.</p>
+        <p>Esta página solo es accesible con la sesión iniciada.</p>
+
+        <dl>
+            <dt>ID</dt>
+            <dd>{{ user.id }}</dd>
+
+            <dt>Usuario</dt>
+            <dd>{{ user.username }}</dd>
+
+            <dt>Email</dt>
+            <dd>{{ user.email }}</dd>
+
+            <dt>Roles</dt>
+            <dd>{{ user.roles|join(', ') }}</dd>
+        </dl>
+    </div>
+{% endblock %}

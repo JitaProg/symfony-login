@@ -1,3 +1,282 @@
+/* ==========================================================================
+   Tema oscuro minimalista con acento lima
+   ========================================================================== */
+
+:root {
+    --bg: #0e100f;
+    --surface: #151815;
+    --surface-2: #101310;
+    --border: #2a2f2b;
+    --text: #e9ede9;
+    --muted: #9aa39c;
+    --lime: #b6f36a;
+    --lime-dark: #9bd94f;
+    --danger: #ff8a8a;
+    --radius: 12px;
+    --font: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    color-scheme: dark;
+}
+
 body {
-    background-color: skyblue;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    line-height: 1.6;
+}
+
+::selection {
+    background: var(--lime);
+    color: var(--bg);
+}
+
+a {
+    color: var(--lime);
+}
+
+/* ------------------------------ Navegación ------------------------------ */
+
+.site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem 1.25rem;
+    padding: 0.9rem 1.25rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+}
+
+.site-nav a {
+    padding: 0.25rem 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+    color: var(--lime);
+}
+
+.site-nav span {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.logout-form {
+    display: inline-flex;
+    margin: 0;
+}
+
+.logout-form button {
+    padding: 0.25rem 0;
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+
+.logout-form button:hover,
+.logout-form button:focus-visible {
+    color: var(--danger);
+}
+
+/* ------------------------------- Contenido ------------------------------ */
+
+main {
+    flex: 1;
+    display: grid;
+    place-items: center;
+    padding: 3rem 1.25rem;
+}
+
+.container {
+    width: min(100%, 46rem);
+    padding: clamp(1.75rem, 4vw, 2.75rem);
+    text-align: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+h1 {
+    margin: 0 0 1.25rem;
+    color: var(--text);
+    font-size: clamp(1.7rem, 4vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+}
+
+p {
+    margin: 0.6rem 0;
+    color: var(--muted);
+}
+
+strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
+small {
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+/* Palabras destacadas: Symfony, SQLite, PHP... */
+.accent {
+    color: var(--lime);
+    font-weight: 800;
+}
+
+/* -------------------------------- Login --------------------------------- */
+
+.login-form {
+    display: grid;
+    gap: 0.35rem;
+    width: min(100%, 22rem);
+    margin: 1.5rem auto 0;
+    text-align: left;
+}
+
+.login-form label {
+    margin-top: 0.5rem;
+    color: var(--muted);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface-2);
+    color: var(--text);
+    font: inherit;
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+.login-form input:focus {
+    border-color: var(--lime);
+}
+
+.login-form input:-webkit-autofill {
+    -webkit-text-fill-color: var(--text);
+    box-shadow: 0 0 0 1000px var(--surface-2) inset;
+}
+
+.login-form button[type="submit"] {
+    width: 100%;
+    margin-top: 0.9rem;
+    padding: 0.8rem 1.25rem;
+    border: 0;
+    border-radius: 8px;
+    background: var(--lime);
+    color: var(--bg);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.login-form button[type="submit"]:hover,
+.login-form button[type="submit"]:focus-visible {
+    background: var(--lime-dark);
+}
+
+.form-error {
+    width: min(100%, 22rem);
+    margin: 0 auto 1rem;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid rgb(255 138 138 / 35%);
+    border-radius: 8px;
+    background: rgb(255 138 138 / 8%);
+    color: var(--danger);
+    font-size: 0.875rem;
+}
+
+/* ------------------------------- Dashboard ------------------------------ */
+
+dl {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0.5rem 1.75rem;
+    justify-content: center;
+    width: fit-content;
+    margin: 1.5rem auto 0;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface-2);
+    text-align: left;
+}
+
+dt {
+    align-self: center;
+    color: var(--muted);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+dd {
+    margin: 0;
+    color: var(--text);
+    font-weight: 500;
+}
+
+/* ------------------------------- Utilidades ----------------------------- */
+
+:focus-visible {
+    outline: 2px solid var(--lime);
+    outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+    .site-nav {
+        gap: 0.4rem 1rem;
+        padding: 0.75rem 1rem;
+    }
+
+    main {
+        padding: 2rem 1rem;
+    }
+
+    dl {
+        grid-template-columns: 1fr;
+        gap: 0.15rem;
+    }
+
+    dd {
+        margin-bottom: 0.5rem;
+    }
 }
