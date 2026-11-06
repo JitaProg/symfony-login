@@ -1,0 +1,5 @@
+framework:
+    csrf_protection:
+        stateless_token_ids:
+            - authenticate
+            - logout
