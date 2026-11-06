@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inicio - Mi primera App{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Bienvenido a mi primera aplicación Symfony</h1>
+        <p><strong>Desarrollador:</strong> {{ nombre }}</p>
+        <p><strong>Sobre el proyecto:</strong> {{ descripcion_proyecto }}</p>
+        <p><small>Petición procesada el {{ fecha_actual }}</small></p>
+    </div>
+{% endblock %}
